@@ -1,11 +1,23 @@
 [package]
-name = "kra-image-integration"
-description = "basic image crate integration for krita's image format"
-repository = "https://github.com/Elec3137/kra-image-integration"
+name = "misc-image-integration"
+description = "basic image crate integration for kra and svg formats"
+repository = "https://github.com/Elec3137/misc-image-integration"
 license = "AGPL-3.0-or-later"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = [ "kra", "svg" ]
+svg = [ "dep:resvg" ]
+kra = [ "dep:zip" ]
+
 [dependencies]
 image = "0.25.10"
-zip = "8.6.0"
+
+[dependencies.resvg]
+version = "0.48.1"
+optional = true
+
+[dependencies.zip]
+version = "8.6.0"
+optional = true
